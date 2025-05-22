@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://media.licdn.com/dms/image/v2/D4D0BAQFwgYlgiwo13Q/company-logo_200_200/company-logo_200_200/0/1701142528034/casa_do_cdigo_logo?e=2147483647&v=beta&t=N85mLlOTDnfc-632zD0ni8CEJbylOZnGAul-D4BGoXA">
+    <title>Top Front-End Books</title>
+    <!--importando tailwind via cdn-->  
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .book-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .book-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Animações de entrada */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-slideInUp {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        /* Atraso para cada cartão de livro para um efeito de escala */
+        .book-card:nth-child(1) { animation-delay: 0.1s; }
+        .book-card:nth-child(2) { animation-delay: 0.2s; }
+        .book-card:nth-child(3) { animation-delay: 0.3s; }
+        .book-card:nth-child(4) { animation-delay: 0.4s; }
+        .book-card:nth-child(5) { animation-delay: 0.5s; } 
+        .book-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Animação para a seção "Sobre" */
+        .about-section-animation {
+            animation: fadeIn 1s ease-out 0.5s forwards; /* Atraso para aparecer após o cabeçalho */
+            opacity: 0; /* Começa invisível */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+
+    <header class="bg-blue-600 text-white p-6 shadow-md animate-fadeIn">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold text-center">Top Front-End Books | CP6</h1>
+        </div>
+    </header>
+
+    <section id="about-section" class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-lg about-section-animation">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Sobre o Top Front-End Books</h2>
+        <p class="text-gray-700 leading-relaxed text-center max-w-2xl mx-auto">
+            Bem-vindo ao <strong class="font-semibold text-blue-600">Top Front-End Books</strong>! Aqui você encontrará uma seleção curada dos melhores livros para aprimorar suas habilidades em desenvolvimento Front-End. Nossa missão é guiá-lo pelos recursos mais valiosos, desde os fundamentos de HTML, CSS e JavaScript até frameworks modernos como <span class="text-green-500 font-medium">React</span> e <span class="text-blue-500 font-medium">Vue.js</span>. Esperamos que esta coleção ajude você a construir interfaces de usuário incríveis e funcionais.
+        </p>
+    </section>
+
+    <main class="container mx-auto p-6 mt-8">
+        <section id="books-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="loading" class="col-span-full text-center text-gray-600 text-lg">Carregando livros...</div>
+            <div id="error-message" class="col-span-full text-center text-red-600 text-lg hidden">Ocorreu um erro ao carregar os livros. Por favor, tente novamente mais tarde.</div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-6 mt-12 text-center">
+        <p>&copy; 2024 Top Front-End Books. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
